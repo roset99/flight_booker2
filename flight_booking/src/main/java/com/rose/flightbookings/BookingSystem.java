@@ -6,13 +6,43 @@ public class BookingSystem {
     private Flight[] flightsAvailable;
     private Flight[] fullyBookedFlights;
     private Flight[] allFlights;
+    private Passenger[] allPassengers;
     private int systemCapacity;
+    private int passengerCapacity;
+    private int passengerCount;
 
-    public BookingSystem(Flight[] flightsAvailable, Flight[] fullyBookedFlights, Flight[] allFlights, int systemCapacity) {
+    public BookingSystem(int systemCapacity, int passengerCapacity) {
         this.flightsAvailable = new Flight[systemCapacity];
         this.fullyBookedFlights = new Flight[systemCapacity];
         this.allFlights = new Flight[systemCapacity];
+        this.allPassengers = new Passenger[passengerCapacity];
         this.systemCapacity = systemCapacity;
+        this.passengerCapacity = passengerCapacity;
+        this.passengerCount = 0;
+    }
+
+    public int getPassengerCount() {
+        return passengerCount;
+    }
+
+    public void setPassengerCount(int passengerCount) {
+        this.passengerCount = passengerCount;
+    }
+
+    public Passenger[] getAllPassengers() {
+        return allPassengers;
+    }
+
+    public void setAllPassengers(Passenger[] allPassengers) {
+        this.allPassengers = allPassengers;
+    }
+
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
     }
 
     public Flight[] getFlightsAvailable() {
@@ -53,7 +83,10 @@ public class BookingSystem {
                 "flightsAvailable=" + Arrays.toString(flightsAvailable) +
                 ", fullyBookedFlights=" + Arrays.toString(fullyBookedFlights) +
                 ", allFlights=" + Arrays.toString(allFlights) +
+                ", allPassengers=" + Arrays.toString(allPassengers) +
                 ", systemCapacity=" + systemCapacity +
+                ", passengerCapacity=" + passengerCapacity +
+                ", passengerCount=" + passengerCount +
                 '}';
     }
 }

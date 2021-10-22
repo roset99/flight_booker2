@@ -1,11 +1,13 @@
 package com.rose.flightbookings;
 
 public class ManagerService {
-//    BookFlight
+//    BookFlight //    NewPassenger
 //    CancelFlight
 //    ViewFlightsAvailable
 //    ViewFullyBookedFlights (all)
 //    ViewBookedFlights (passenger)
 //    AddNewFlight
-//    NewPassenger
+//    Log-in
+
+
 }
