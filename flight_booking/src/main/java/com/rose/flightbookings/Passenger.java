@@ -3,6 +3,8 @@ package com.rose.flightbookings;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Passenger {
     private String firstName;
@@ -11,7 +13,7 @@ public class Passenger {
     private LocalDate dateOfBirth;
     private Citizenship citizenship;
     private Flight[] bookedFlights;
-    private Identifier id;
+    private String id;
 
     public Passenger(String firstName, String lastName, String passportNumber, LocalDate dateOfBirth, Citizenship citizenship) {
         this.firstName = firstName;
@@ -19,7 +21,7 @@ public class Passenger {
         this.passportNumber = passportNumber;
         this.dateOfBirth = dateOfBirth;
         this.citizenship = citizenship;
-        this.id = new Identifier();
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getFirstName() {
@@ -70,11 +72,11 @@ public class Passenger {
         this.bookedFlights = bookedFlights;
     }
 
-    public Identifier getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Identifier id) {
+    public void setId(String id) {
         this.id = id;
     }
 

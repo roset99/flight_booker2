@@ -2,15 +2,15 @@ package com.rose.flightbookings;
 
 public enum Citizenship {
     EU,
-    British,
+    BRITISH,
     US,
-    Japanese,
-    Chinese,
-    Australian,
-    Syrian,
-    SouthAfrican,
-    Malaysia,
-    Pakistan,
-    Cuban,
-    Indian
+    JAPANESE,
+    CHINESE,
+    AUSTRALIAN,
+    SYRIAN,
+    SOUTHAFRICAN,
+    MALAYSIAN,
+    PAKISTANI,
+    CUBAN,
+    INDIAN
 }
