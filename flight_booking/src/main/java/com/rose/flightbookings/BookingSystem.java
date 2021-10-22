@@ -8,6 +8,7 @@ public class BookingSystem {
     private Flight[] allFlights;
     private Passenger[] allPassengers;
     private int systemCapacity;
+    private int flightCount;
     private int passengerCapacity;
     private int passengerCount;
 
@@ -18,7 +19,16 @@ public class BookingSystem {
         this.allPassengers = new Passenger[passengerCapacity];
         this.systemCapacity = systemCapacity;
         this.passengerCapacity = passengerCapacity;
+        this.flightCount = 0;
         this.passengerCount = 0;
+    }
+
+    public int getFlightCount() {
+        return flightCount;
+    }
+
+    public void setFlightCount(int flightCount) {
+        this.flightCount = flightCount;
     }
 
     public int getPassengerCount() {
@@ -85,6 +95,7 @@ public class BookingSystem {
                 ", allFlights=" + Arrays.toString(allFlights) +
                 ", allPassengers=" + Arrays.toString(allPassengers) +
                 ", systemCapacity=" + systemCapacity +
+                ", flightCount=" + flightCount +
                 ", passengerCapacity=" + passengerCapacity +
                 ", passengerCount=" + passengerCount +
                 '}';
