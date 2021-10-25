@@ -1,8 +1,6 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
-import java.awt.print.Book;
 //import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {

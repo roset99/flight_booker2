@@ -1,7 +1,6 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 import javax.swing.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.IsoChronology;
 import java.time.format.DateTimeFormatter;

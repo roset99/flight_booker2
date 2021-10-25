@@ -1,10 +1,9 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Passenger {
     private String firstName;
@@ -108,7 +107,7 @@ public class Passenger {
                 ", passportNumber='" + passportNumber + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", citizenship=" + citizenship +
-                ", bookedFlights=" + Arrays.toString(bookedFlights) +
+//                ", bookedFlights=" + Arrays.toString(bookedFlights) +
                 ", count=" + count +
                 ", id='" + id + '\'' +
                 '}';

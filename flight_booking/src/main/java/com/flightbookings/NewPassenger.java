@@ -1,10 +1,7 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 import javax.swing.*;
-import java.awt.print.Book;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.Year;
 import java.time.chrono.IsoChronology;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;

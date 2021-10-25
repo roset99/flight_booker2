@@ -1,4 +1,4 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 public class FindAvailableFlight {
     public Flight findAvailableFlight(BookingSystem bookingSystem, int flightNumber){

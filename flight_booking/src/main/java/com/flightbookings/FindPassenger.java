@@ -1,4 +1,4 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 public class FindPassenger {
     public Passenger findPassenger(BookingSystem bookingSystem, String passportNumber){

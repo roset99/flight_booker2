@@ -1,4 +1,4 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -33,7 +33,10 @@ public class ViewFlight {
                 System.out.println(Arrays.toString(bookingSystem.getFullyBookedFlights()));
                 System.out.println("Please press enter to go back to the main menu");
             } else if(flightInput.equalsIgnoreCase("My flights")) {
-                System.out.println(Arrays.toString(passengerFlight.getBookedFlights()));
+//                System.out.println(Arrays.toString(passengerFlight.getBookedFlights()));
+                for (Flight bookedFlight : passengerFlight.getBookedFlights()) {
+                    System.out.println(bookedFlight);
+                }
                 System.out.println("Please press enter to go back to the main menu");
             } else if (flightInput.equalsIgnoreCase("Exit")){
                 System.out.println("Goodbye");

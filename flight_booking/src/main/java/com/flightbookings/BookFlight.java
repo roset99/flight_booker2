@@ -1,4 +1,4 @@
-package com.rose.flightbookings;
+package com.flightbookings;
 
 public class BookFlight {
     public void bookFlight(Passenger passenger, Flight flight, BookingSystem bookingSystem){
@@ -30,6 +30,9 @@ public class BookFlight {
             flight.setNumOfPassengers(++count);
             System.out.println("Booked Flight");
             System.out.println(passenger.toString());
+            for (Flight bookedFlight : passenger.getBookedFlights()) {
+                System.out.println(bookedFlight);
+            }
         }
     }
 }
