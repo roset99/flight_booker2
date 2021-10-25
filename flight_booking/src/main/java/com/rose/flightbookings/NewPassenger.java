@@ -40,7 +40,7 @@ public class NewPassenger {
     public NewPassenger(BookingSystem bookingSystem){
         this.bookingSystem = bookingSystem;
     }
-    public void newPassenger(){
+    public Passenger newPassenger(){
         System.out.println("Enter First Name: ");
         Scanner scanner1 = new Scanner(System.in);
         String firstName = scanner1.nextLine();
@@ -75,8 +75,10 @@ public class NewPassenger {
             int count = bookingSystem.getPassengerCount();
             bookingSystem.setPassengerCount(++count);
             System.out.println(passenger.toString());
+            return passenger;
         } else{
             System.out.println("Sorry System is full!");
+            return null;
         }
 
     }

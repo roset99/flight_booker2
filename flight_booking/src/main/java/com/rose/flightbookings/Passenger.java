@@ -15,12 +15,14 @@ public class Passenger {
     private Flight[] bookedFlights;
     private String id;
 
+
     public Passenger(String firstName, String lastName, String passportNumber, LocalDate dateOfBirth, Citizenship citizenship) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passportNumber = passportNumber;
         this.dateOfBirth = dateOfBirth;
         this.citizenship = citizenship;
+        this.bookedFlights = new Flight[5];
         this.id = UUID.randomUUID().toString();
     }
 
