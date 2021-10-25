@@ -1,6 +1,11 @@
 package com.flightbookings;
 
 //import java.lang.reflect.Array;
+import com.flightbookings.flights.*;
+import com.flightbookings.passenger.NewPassenger;
+import com.flightbookings.passenger.Passenger;
+import com.flightbookings.services.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -63,7 +68,7 @@ public class Main {
                     FindAvailableFlight cancelable = new FindAvailableFlight();
                     Scanner scanner4 = new Scanner(System.in);
                     String choiceNumber = scanner4.nextLine();
-                    cancel.cancelFlight(passenger, passenger.getBookedFlights()[Integer.parseInt(choiceNumber) - 1]);
+                    cancel.cancelFlight(passenger, passenger.getBookedFlights()[Integer.parseInt(choiceNumber) - 1], Integer.parseInt(choiceNumber));
                     break;
                 case "4":
                     AddFlight addFlight = new AddFlight(bookingSystem);
