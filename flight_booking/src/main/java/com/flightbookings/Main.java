@@ -36,7 +36,8 @@ public class Main {
 
         do {
             System.out.println("Welcome: " + passenger.getFirstName());
-            System.out.println("Please choose a service: 1: Look at flights \n" +
+            System.out.println("Please choose a service: \n" +
+                    "1: Look at flights \n" +
                     "2: Book Flight \n" +
                     "3: Cancel Flight\n" +
                     "4: Add Flight to SkyScanner\n" +
@@ -81,18 +82,6 @@ public class Main {
             }
         } while (!exit);
 
-//        BookingSystem bookingSystem = new BookingSystem(2,2);
-//        NewPassenger john = new NewPassenger(bookingSystem);
-//        Passenger passengerFlight = john.newPassenger();
-//        System.out.println(bookingSystem.toString());
-//        AddFlight toEgypt = new AddFlight(bookingSystem);
-//        toEgypt.addFlight();
-//        toEgypt.addFlight();
-//        Passenger passengerFlight = new Passenger("Jane", "Doe", "777777", LocalDate.of(2008, 10, 23), Citizenship.BRITISH);
-//        Flight flight = bookingSystem.getFlightsAvailable()[0];
-//        passengerFlight.setBookedFlights(new Flight[]{flight});
-//        ViewFlight menu= new ViewFlight(bookingSystem, passengerFlight);
-//        menu.flightMenu();
 
     }
 }
