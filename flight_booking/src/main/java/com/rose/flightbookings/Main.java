@@ -52,7 +52,7 @@ public class Main {
                     Scanner scanner3 = new Scanner(System.in);
                     String flightNumber = scanner3.nextLine();
                     Flight flight = available.findAvailableFlight(bookingSystem, Integer.parseInt(flightNumber));
-                    book.bookFlight(passenger, flight);
+                    book.bookFlight(passenger, flight, bookingSystem);
                     break;
                 case "3":
                     CancelFlight cancel = new CancelFlight();

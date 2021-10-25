@@ -68,6 +68,8 @@ public class AddFlight {
             bookingSystem.getAllFlights()[bookingSystem.getFlightCount()] = flight;
             bookingSystem.getFlightsAvailable()[bookingSystem.getFlightCount()] = flight;
             int count = bookingSystem.getFlightCount();
+            int num = bookingSystem.getAvailableCount();
+            bookingSystem.setAvailableCount(++num);
             bookingSystem.setFlightCount(++count);
             System.out.println(bookingSystem.toString());
         } else{

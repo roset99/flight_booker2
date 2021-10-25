@@ -13,6 +13,7 @@ public class Passenger {
     private LocalDate dateOfBirth;
     private Citizenship citizenship;
     private Flight[] bookedFlights;
+    private int count;
     private String id;
 
 
@@ -23,7 +24,16 @@ public class Passenger {
         this.dateOfBirth = dateOfBirth;
         this.citizenship = citizenship;
         this.bookedFlights = new Flight[5];
+        this.count = 0;
         this.id = UUID.randomUUID().toString();
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getFirstName() {
@@ -82,6 +92,14 @@ public class Passenger {
         this.id = id;
     }
 
+//    public String printBookedFlights(){
+//        String word = new String();
+//        for (int i = 0 ; i< this.getCount(); i++){
+//            word += bookedFlights[i].toString() + ", ";
+//        }
+//        return word;
+//    }
+
     @Override
     public String toString() {
         return "Passenger{" +
@@ -91,7 +109,8 @@ public class Passenger {
                 ", dateOfBirth=" + dateOfBirth +
                 ", citizenship=" + citizenship +
                 ", bookedFlights=" + Arrays.toString(bookedFlights) +
-                ", id=" + id +
+                ", count=" + count +
+                ", id='" + id + '\'' +
                 '}';
     }
 
