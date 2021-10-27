@@ -1,19 +1,18 @@
 package com.flightbookings.passenger;
 
 import com.flightbookings.flights.Flight;
+import com.flightbookings.services.FileInput;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
-public class Passenger {
+public class Passenger extends FileInput {
     private String firstName;
     private String lastName;
     private String passportNumber;
     private LocalDate dateOfBirth;
     private Citizenship citizenship;
-    private Flight[] bookedFlights;
+    private List<Flight> bookedFlights;
     private int count;
     private String id;
 
@@ -24,17 +23,9 @@ public class Passenger {
         this.passportNumber = passportNumber;
         this.dateOfBirth = dateOfBirth;
         this.citizenship = citizenship;
-        this.bookedFlights = new Flight[5];
+        this.bookedFlights = new ArrayList<>();
         this.count = 0;
         this.id = UUID.randomUUID().toString();
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public String getFirstName() {
@@ -77,12 +68,20 @@ public class Passenger {
         this.citizenship = citizenship;
     }
 
-    public Flight[] getBookedFlights() {
+    public List<Flight> getBookedFlights() {
         return bookedFlights;
     }
 
-    public void setBookedFlights(Flight[] bookedFlights) {
+    public void setBookedFlights(List<Flight> bookedFlights) {
         this.bookedFlights = bookedFlights;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getId() {
@@ -93,14 +92,6 @@ public class Passenger {
         this.id = id;
     }
 
-//    public String printBookedFlights(){
-//        String word = new String();
-//        for (int i = 0 ; i< this.getCount(); i++){
-//            word += bookedFlights[i].toString() + ", ";
-//        }
-//        return word;
-//    }
-
     @Override
     public String toString() {
         return "Passenger{" +
@@ -109,7 +100,7 @@ public class Passenger {
                 ", passportNumber='" + passportNumber + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", citizenship=" + citizenship +
-//                ", bookedFlights=" + Arrays.toString(bookedFlights) +
+                ", bookedFlights=" + bookedFlights +
                 ", count=" + count +
                 ", id='" + id + '\'' +
                 '}';
@@ -120,13 +111,11 @@ public class Passenger {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Passenger passenger = (Passenger) o;
-        return Objects.equals(firstName, passenger.firstName) && Objects.equals(lastName, passenger.lastName) && Objects.equals(passportNumber, passenger.passportNumber) && Objects.equals(dateOfBirth, passenger.dateOfBirth) && citizenship == passenger.citizenship && Arrays.equals(bookedFlights, passenger.bookedFlights) && Objects.equals(id, passenger.id);
+        return count == passenger.count && Objects.equals(firstName, passenger.firstName) && Objects.equals(lastName, passenger.lastName) && Objects.equals(passportNumber, passenger.passportNumber) && Objects.equals(dateOfBirth, passenger.dateOfBirth) && citizenship == passenger.citizenship && Objects.equals(bookedFlights, passenger.bookedFlights) && Objects.equals(id, passenger.id);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(firstName, lastName, passportNumber, dateOfBirth, citizenship, id);
-        result = 31 * result + Arrays.hashCode(bookedFlights);
-        return result;
+        return Objects.hash(firstName, lastName, passportNumber, dateOfBirth, citizenship, bookedFlights, count, id);
     }
 }

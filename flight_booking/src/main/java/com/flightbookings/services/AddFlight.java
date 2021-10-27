@@ -5,6 +5,10 @@ import com.flightbookings.flights.Company;
 import com.flightbookings.flights.Flight;
 
 import javax.swing.*;
+import java.awt.print.Book;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.chrono.IsoChronology;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +19,7 @@ import java.util.Scanner;
 
 public class AddFlight {
     private BookingSystem bookingSystem;
-    public AddFlight(BookingSystem bookingSystem){
+    public AddFlight(BookingSystem bookingSystem) throws IOException {
         this.bookingSystem = bookingSystem;
     }
     private static final Locale defaultFormattingLocale
@@ -25,6 +29,11 @@ public class AddFlight {
                     IsoChronology.INSTANCE, defaultFormattingLocale);
     private static final DateTimeFormatter dateFormatter
             = DateTimeFormatter.ofPattern("HH:mm dd/MM/uuuu");
+    private FileWriter fileWriterPassengers = new FileWriter("src/allPassengers" + bookingSystem, false);
+    private PrintWriter printWriterPassengers = new PrintWriter(fileWriterPassengers);
+
+    private FileWriter fileWriterFlights = new FileWriter("src/allFlights" + bookingSystem, false);
+    private PrintWriter printWriterFlights = new PrintWriter(fileWriterPassengers);
     public void addFlight(){
         System.out.println("Enter Flight Number: ");
         Scanner scanner1 = new Scanner(System.in);
@@ -67,14 +76,15 @@ public class AddFlight {
 
 
         if (bookingSystem.getFlightCount()+1 <= bookingSystem.getSystemCapacity()) {
-            Flight flight = new Flight(Integer.parseInt(flightNumber), flightCompany, startPoint, destination, Integer.parseInt(flightCapacity),inputDate);
-            bookingSystem.getAllFlights()[bookingSystem.getFlightCount()] = flight;
-            bookingSystem.getFlightsAvailable()[bookingSystem.getFlightCount()] = flight;
+            Flight flight = new Flight(Integer.parseInt(flightNumber), flightCompany, startPoint, destination, Integer.parseInt(flightCapacity), inputDate);
+            AddToFile addToFile = new AddToFile();
+            addToFile.addToFile(bookingSystem.getAllFlights(),flight);
+            bookingSystem.getFlightsAvailable().add(flight);
             int count = bookingSystem.getFlightCount();
             int num = bookingSystem.getAvailableCount();
             bookingSystem.setAvailableCount(++num);
             bookingSystem.setFlightCount(++count);
-            System.out.println(bookingSystem.toString());
+            System.out.println("Flight created!");
         } else{
             System.out.println("Sorry System is full!");
         }

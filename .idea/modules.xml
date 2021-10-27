@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Flight_booking (copy).iml" filepath="$PROJECT_DIR$/.idea/Flight_booking (copy).iml" />
+      <module fileurl="file://$PROJECT_DIR$/flight_booking/flight_booking2.iml" filepath="$PROJECT_DIR$/flight_booking/flight_booking2.iml" />
+    </modules>
+  </component>
+</project>

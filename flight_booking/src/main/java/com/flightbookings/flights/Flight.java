@@ -3,11 +3,16 @@ package com.flightbookings.flights;
 import com.flightbookings.flights.Airport;
 import com.flightbookings.flights.Company;
 import com.flightbookings.passenger.Passenger;
+import com.flightbookings.services.FileInput;
 
+import java.sql.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
-public class Flight {
+public class Flight extends FileInput {
     private int flightNumber;
     private Company flightCompany;
     private Airport startPoint;
@@ -15,7 +20,7 @@ public class Flight {
     private int capacity;
     private LocalDateTime departureTime;
     private boolean isFull;
-    private Passenger[] listOfPassengers;
+    private List<Passenger> listOfPassengers;
     private int numOfPassengers;
 
     public Flight(int flightNumber, Company flightCompany, Airport startPoint, Airport destination, int capacity, LocalDateTime departureTime) {
@@ -26,7 +31,7 @@ public class Flight {
         this.capacity = capacity;
         this.departureTime = departureTime;
         this.isFull = false;
-        this.listOfPassengers = new Passenger[capacity];
+        this.listOfPassengers = new ArrayList<>();
         this.numOfPassengers = 0;
     }
 
@@ -86,11 +91,11 @@ public class Flight {
         isFull = full;
     }
 
-    public Passenger[] getListOfPassengers() {
+    public List<Passenger> getListOfPassengers() {
         return listOfPassengers;
     }
 
-    public void setListOfPassengers(Passenger[] listOfPassengers) {
+    public void setListOfPassengers(List<Passenger> listOfPassengers) {
         this.listOfPassengers = listOfPassengers;
     }
 
@@ -103,17 +108,15 @@ public class Flight {
     }
 
     @Override
-    public String toString() {
-        return "Flight{" +
-                "flightNumber=" + flightNumber +
-                ", flightCompany=" + flightCompany +
-                ", startPoint=" + startPoint +
-                ", destination=" + destination +
-                ", capacity=" + capacity +
-                ", departureTime=" + departureTime +
-                ", isFull=" + isFull +
-                ", listOfPassengers=" + Arrays.toString(listOfPassengers) +
-                ", numOfPassengers=" + numOfPassengers +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return flightNumber == flight.flightNumber && capacity == flight.capacity && isFull == flight.isFull && numOfPassengers == flight.numOfPassengers && flightCompany == flight.flightCompany && startPoint == flight.startPoint && destination == flight.destination && Objects.equals(departureTime, flight.departureTime) && Objects.equals(listOfPassengers, flight.listOfPassengers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flightNumber, flightCompany, startPoint, destination, capacity, departureTime, isFull, listOfPassengers, numOfPassengers);
     }
 }

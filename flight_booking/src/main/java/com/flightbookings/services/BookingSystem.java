@@ -3,13 +3,17 @@ package com.flightbookings.services;
 import com.flightbookings.flights.Flight;
 import com.flightbookings.passenger.Passenger;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class BookingSystem {
-    private Flight[] flightsAvailable;
-    private Flight[] fullyBookedFlights;
-    private Flight[] allFlights;
-    private Passenger[] allPassengers;
+    private String systemName
+    private List<Flight> flightsAvailable;
+    private List<Flight> fullyBookedFlights;
+    private File allFlights;
+    private File allPassengers;
     private int systemCapacity;
     private int flightCount;
     private int availableCount;
@@ -17,17 +21,79 @@ public class BookingSystem {
     private int passengerCapacity;
     private int passengerCount;
 
-    public BookingSystem(int systemCapacity, int passengerCapacity) {
-        this.flightsAvailable = new Flight[systemCapacity];
-        this.fullyBookedFlights = new Flight[systemCapacity];
-        this.allFlights = new Flight[systemCapacity];
-        this.allPassengers = new Passenger[passengerCapacity];
+    public BookingSystem(String systemName, int systemCapacity, int passengerCapacity) {
+        this.flightsAvailable = new ArrayList<Flight>();
+        this.fullyBookedFlights = new ArrayList<Flight>();
+        this.allFlights = new File("src/allFlights%s.txt",systemName);
+        this.allPassengers = new File("src/allPassengers%s.txt",systemName);
         this.systemCapacity = systemCapacity;
         this.passengerCapacity = passengerCapacity;
         this.flightCount = 0;
         this.passengerCount = 0;
         this.bookedCount = 0;
         this.availableCount = 0;
+        if (!this.allFlights.exists()) {
+            System.out.println(this.allFlights.createNewFile());
+
+        } else {
+            System.out.println("File already exists");
+        }
+    }
+
+    public String getSystemName() {
+        return systemName;
+    }
+
+    public void setSystemName(String systemName) {
+        this.systemName = systemName;
+    }
+
+    public List<Flight> getFlightsAvailable() {
+        return flightsAvailable;
+    }
+
+    public void setFlightsAvailable(List<Flight> flightsAvailable) {
+        this.flightsAvailable = flightsAvailable;
+    }
+
+    public List<Flight> getFullyBookedFlights() {
+        return fullyBookedFlights;
+    }
+
+    public void setFullyBookedFlights(List<Flight> fullyBookedFlights) {
+        this.fullyBookedFlights = fullyBookedFlights;
+    }
+
+    public File getAllFlights() {
+        return allFlights;
+    }
+
+    public void setAllFlights(File allFlights) {
+        this.allFlights = allFlights;
+    }
+
+    public File getAllPassengers() {
+        return allPassengers;
+    }
+
+    public void setAllPassengers(File allPassengers) {
+        this.allPassengers = allPassengers;
+    }
+
+    public int getSystemCapacity() {
+        return systemCapacity;
+    }
+
+    public void setSystemCapacity(int systemCapacity) {
+        this.systemCapacity = systemCapacity;
+    }
+
+    public int getFlightCount() {
+        return flightCount;
+    }
+
+    public void setFlightCount(int flightCount) {
+        this.flightCount = flightCount;
     }
 
     public int getAvailableCount() {
@@ -46,30 +112,6 @@ public class BookingSystem {
         this.bookedCount = bookedCount;
     }
 
-    public int getFlightCount() {
-        return flightCount;
-    }
-
-    public void setFlightCount(int flightCount) {
-        this.flightCount = flightCount;
-    }
-
-    public int getPassengerCount() {
-        return passengerCount;
-    }
-
-    public void setPassengerCount(int passengerCount) {
-        this.passengerCount = passengerCount;
-    }
-
-    public Passenger[] getAllPassengers() {
-        return allPassengers;
-    }
-
-    public void setAllPassengers(Passenger[] allPassengers) {
-        this.allPassengers = allPassengers;
-    }
-
     public int getPassengerCapacity() {
         return passengerCapacity;
     }
@@ -78,36 +120,12 @@ public class BookingSystem {
         this.passengerCapacity = passengerCapacity;
     }
 
-    public Flight[] getFlightsAvailable() {
-        return flightsAvailable;
+    public int getPassengerCount() {
+        return passengerCount;
     }
 
-    public void setFlightsAvailable(Flight[] flightsAvailable) {
-        this.flightsAvailable = flightsAvailable;
-    }
-
-    public Flight[] getFullyBookedFlights() {
-        return fullyBookedFlights;
-    }
-
-    public void setFullyBookedFlights(Flight[] fullyBookedFlights) {
-        this.fullyBookedFlights = fullyBookedFlights;
-    }
-
-    public Flight[] getAllFlights() {
-        return allFlights;
-    }
-
-    public void setAllFlights(Flight[] allFlights) {
-        this.allFlights = allFlights;
-    }
-
-    public int getSystemCapacity() {
-        return systemCapacity;
-    }
-
-    public void setSystemCapacity(int systemCapacity) {
-        this.systemCapacity = systemCapacity;
+    public void setPassengerCount(int passengerCount) {
+        this.passengerCount = passengerCount;
     }
 
     @Override
